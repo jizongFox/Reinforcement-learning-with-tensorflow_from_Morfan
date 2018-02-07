@@ -51,7 +51,7 @@ class QLearningTable(RL):
     def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
         super(QLearningTable, self).__init__(actions, learning_rate, reward_decay, e_greedy)
 
-    def learn(self, s, a, r, s_):
+    def learn(self, s, a, r, s_):  # q learning 不涉及到下一个的选取的动作
         self.check_state_exist(s_)
         q_predict = self.q_table.ix[s, a]
         if s_ != 'terminal':
@@ -67,7 +67,7 @@ class SarsaTable(RL):
     def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
         super(SarsaTable, self).__init__(actions, learning_rate, reward_decay, e_greedy)
 
-    def learn(self, s, a, r, s_, a_):
+    def learn(self, s, a, r, s_, a_): # sarsa 要考虑到下一个的动作
         self.check_state_exist(s_)
         q_predict = self.q_table.ix[s, a]
         if s_ != 'terminal':

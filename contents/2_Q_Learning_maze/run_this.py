@@ -31,7 +31,7 @@ def update():
             observation_, reward, done = env.step(action)
             # 掉下去reward是-1 得到黄点是1，其他都是0
 
-            print(reward)
+            # print(reward)
             print(RL.q_table.head())
             # RL learn from this transition
             RL.learn(str(observation), action, reward, str(observation_))

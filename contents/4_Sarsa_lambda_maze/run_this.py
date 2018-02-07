@@ -34,6 +34,8 @@ def update():
 
             # RL learn from this transition (s, a, r, s, a) ==> Sarsa
             RL.learn(str(observation), action, reward, str(observation_), action_)
+            print(RL.q_table.head())
+            print(RL.eligibility_trace.head())
 
             # swap observation and action
             observation = observation_
